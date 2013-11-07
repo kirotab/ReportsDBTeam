@@ -1,0 +1,5 @@
+C:\Users\kiro\Desktop\DBTEAMWORK\DBTeamwork\SupermarketEF.Model\bin\Debug\SupermarketEF.Model.dll
+C:\Users\kiro\Desktop\DBTEAMWORK\DBTeamwork\SupermarketEF.Model\bin\Debug\SupermarketEF.Model.pdb
+C:\Users\kiro\Desktop\DBTEAMWORK\DBTeamwork\SupermarketEF.Model\obj\Debug\SupermarketEF.Model.dll
+C:\Users\kiro\Desktop\DBTEAMWORK\DBTeamwork\SupermarketEF.Model\obj\Debug\SupermarketEF.Model.pdb
+C:\Users\kiro\Desktop\DBTEAMWORK\DBTeamwork\SupermarketEF.Model\obj\Debug\SupermarketEF.Model.csprojResolveAssemblyReference.cache

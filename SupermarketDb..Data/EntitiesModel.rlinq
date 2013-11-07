@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DomainModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="2.0.0.0" name="SupermarketDbModel" namespace="SupermarketDb.Data" showPropertiesCompartment="true" xmlns="http://www.telerik.com/ORM">
+  <orm:orm name="SupermarketDbModel" backend="mysql" xmlns:orm="http://tempuri.org/ORM">
+    <orm:namespace name="SupermarketDb.Data" default="true">
+      <orm:class name="Vendor" uniqueId="acac9d43-39c4-4bf5-b901-420af4c6944e">
+        <orm:table name="vendors" />
+        <orm:identity>
+          <orm:key-generator name="autoinc" />
+          <orm:single-field field-name="_vendorId" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_vendorName" property="VendorName" behavior="readwrite" uniqueId="4f83c2d6-d2bd-4ea6-9fec-4b3385054385" type="System.String">
+          <orm:column nullable="false" length="50" name="VendorName" scale="0" sql-type="nvarchar" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_vendorId" property="VendorId" behavior="readwrite" uniqueId="0fb24e4a-c1ed-4588-a9a6-6edb0301cdb1" type="System.Int32">
+          <orm:column nullable="false" primary-key="true" length="0" name="VendorId" scale="0" sql-type="integer" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_products" property="Products" behavior="readwrite" uniqueId="51028739-76f8-4837-97c1-c0a489e654ba" type="SupermarketDb.Data.Product">
+          <orm:collection element-class="SupermarketDb.Data.Product" inverse-field="_vendor" order-by="" uniqueId="abcbf5c7-2305-45ec-84ad-4f5d8fc57de5" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="Product" uniqueId="baad5127-a5e3-414d-91f3-b2b37418d6ee">
+        <orm:table name="products" />
+        <orm:identity>
+          <orm:key-generator name="autoinc" />
+          <orm:single-field field-name="_productId" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_vendorId" property="VendorId" behavior="readwrite" uniqueId="7f7a8a40-2111-47ce-be98-81219c7d9dcb" type="System.Int32">
+          <orm:column nullable="false" length="0" name="VendorId" scale="0" sql-type="integer" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_productName" property="ProductName" behavior="readwrite" uniqueId="96dbe57c-9325-4e18-a162-8afeb7dfd5aa" type="System.String">
+          <orm:column nullable="false" length="50" name="ProductName" scale="0" sql-type="nvarchar" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_productId" property="ProductId" behavior="readwrite" uniqueId="c3106288-29da-4b7e-b223-4f7a208b6732" type="System.Int32">
+          <orm:column nullable="false" primary-key="true" length="0" name="ProductId" scale="0" sql-type="integer" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_measureId" property="MeasureId" behavior="readwrite" uniqueId="37e8f849-ea03-4087-ac6b-1d496ef9be79" type="System.Int32">
+          <orm:column nullable="false" length="0" name="MeasureId" scale="0" sql-type="integer" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_basePrice" property="BasePrice" behavior="readwrite" uniqueId="69c1c28c-e7af-4080-9e99-d8dbc057aacb" type="System.Decimal">
+          <orm:column nullable="false" length="10" name="BasePrice" scale="2" sql-type="decimal" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_vendor" property="Vendor" behavior="readwrite" uniqueId="a3278439-475f-4b06-a66a-ce21221f3e79" type="SupermarketDb.Data.Vendor">
+          <orm:reference uniqueId="abcbf5c7-2305-45ec-84ad-4f5d8fc57de5">
+            <orm:sharedfield name="_vendorId" target-class="SupermarketDb.Data.Vendor" target-field="_vendorId" />
+            <orm:constraint name="FK_Products_Vendors" destination-table="vendors" />
+          </orm:reference>
+        </orm:field>
+        <orm:field name="_measure" property="Measure" behavior="readwrite" uniqueId="8e63f9b9-0718-4a25-b8c6-10e24513fc72" type="SupermarketDb.Data.Measure">
+          <orm:reference uniqueId="22b4bf20-14e1-404d-b0c6-61058e8d5681">
+            <orm:sharedfield name="_measureId" target-class="SupermarketDb.Data.Measure" target-field="_measureId" />
+            <orm:constraint name="FK_Products_Measures" destination-table="measures" />
+          </orm:reference>
+        </orm:field>
+      </orm:class>
+      <orm:class name="Measure" uniqueId="0c2ba682-9105-43c3-94a8-668f1b38ed25">
+        <orm:table name="measures" />
+        <orm:identity>
+          <orm:key-generator name="autoinc" />
+          <orm:single-field field-name="_measureId" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_measureName" property="MeasureName" behavior="readwrite" uniqueId="f6c3f852-2a98-4c3e-a14c-9d4188dc7410" type="System.String">
+          <orm:column nullable="true" length="50" name="MeasureName" scale="0" sql-type="nvarchar" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_measureId" property="MeasureId" behavior="readwrite" uniqueId="9ea1da48-46d3-4e7c-9014-04fa8e6a16bd" type="System.Int32">
+          <orm:column has-default-value="true" nullable="false" primary-key="true" length="0" name="MeasureId" scale="0" sql-type="integer" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_products" property="Products" behavior="readwrite" uniqueId="ad2d8ee1-ad34-4c40-be36-f63d9d35f869" type="SupermarketDb.Data.Product">
+          <orm:collection element-class="SupermarketDb.Data.Product" inverse-field="_measure" order-by="" uniqueId="22b4bf20-14e1-404d-b0c6-61058e8d5681" />
+        </orm:field>
+      </orm:class>
+    </orm:namespace>
+    <orm:schema schema="">
+      <orm:table name="vendors">
+        <orm:column nullable="false" length="50" name="VendorName" scale="0" sql-type="nvarchar" ado-type="UnicodeStringVariableLength" />
+        <orm:column nullable="false" primary-key="true" length="0" name="VendorId" scale="0" sql-type="integer" ado-type="Int32" />
+      </orm:table>
+      <orm:table name="products">
+        <orm:column nullable="false" length="0" name="VendorId" scale="0" sql-type="integer" ado-type="Int32" />
+        <orm:column nullable="false" length="50" name="ProductName" scale="0" sql-type="nvarchar" ado-type="UnicodeStringVariableLength" />
+        <orm:column nullable="false" primary-key="true" length="0" name="ProductId" scale="0" sql-type="integer" backend-calculated="true" ado-type="Int32" />
+        <orm:column nullable="false" length="0" name="MeasureId" scale="0" sql-type="integer" ado-type="Int32" />
+        <orm:column nullable="false" length="10" name="BasePrice" scale="2" sql-type="decimal" ado-type="Decimal" />
+        <orm:constraint name="FK_Products_Vendors" destination-table="vendors">
+          <orm:column nullable="false" length="0" name="VendorId" scale="0" sql-type="integer" ado-type="Int32" />
+        </orm:constraint>
+        <orm:constraint name="FK_Products_Measures" destination-table="measures">
+          <orm:column nullable="false" length="0" name="MeasureId" scale="0" sql-type="integer" ado-type="Int32" />
+        </orm:constraint>
+      </orm:table>
+      <orm:table name="measures">
+        <orm:column nullable="true" length="50" name="MeasureName" scale="0" sql-type="nvarchar" ado-type="UnicodeStringVariableLength" />
+        <orm:column has-default-value="true" nullable="false" primary-key="true" length="0" name="MeasureId" scale="0" sql-type="integer" ado-type="Int32" />
+      </orm:table>
+    </orm:schema>
+    <orm:relational-naming-settings>
+      <orm:remove-camel-case>False</orm:remove-camel-case>
+      <orm:source-strategy>Property</orm:source-strategy>
+    </orm:relational-naming-settings>
+  </orm:orm>
+  <ModelSettings xmlns="">
+    <AppConfigConnectionPropertyName>SupermarketdbConnection</AppConfigConnectionPropertyName>
+    <AppConfigConnectionString>server=localhost;user id=root;password=100kila;database=supermarket</AppConfigConnectionString>
+    <InitialCatalog>supermarketdb</InitialCatalog>
+    <NamingSettings>
+      <ClassRules>
+        <CaseMode>PascalCase</CaseMode>
+        <PluralizationMode>Singularize</PluralizationMode>
+      </ClassRules>
+      <FieldRules>
+        <AddPrefix>_</AddPrefix>
+        <CaseMode>CamelCase</CaseMode>
+      </FieldRules>
+      <PropertyRules>
+        <CaseMode>PascalCase</CaseMode>
+      </PropertyRules>
+    </NamingSettings>
+    <CodeGenerationSettings>
+      <MappingDefinitionType>Xml</MappingDefinitionType>
+    </CodeGenerationSettings>
+    <SchemaUpdateSettings />
+    <BackendConfigurationSettings>
+      <BackendConfiguration>
+        <Backend>MySql</Backend>
+        <ProviderName>MySql.Data.MySqlClient</ProviderName>
+      </BackendConfiguration>
+    </BackendConfigurationSettings>
+  </ModelSettings>
+  <Types>
+    <DomainClass Id="acac9d43-39c4-4bf5-b901-420af4c6944e" name="Vendor" namespace="SupermarketDb.Data" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="4f83c2d6-d2bd-4ea6-9fec-4b3385054385" name="VendorName" label="VendorName : String" kind="Persistent" fieldName="_vendorName" />
+      <Property Id="0fb24e4a-c1ed-4588-a9a6-6edb0301cdb1" name="VendorId" type="Int32" label="VendorId : Int32" kind="Persistent" identity="true" fieldName="_vendorId" />
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="87d64553-2fc5-4b2d-b220-90ea8e0d1bdc">
+          <NavigationalProperty Id="51028739-76f8-4837-97c1-c0a489e654ba" name="Products" type="IList&lt;Product&gt;" label="Products : IList&lt;Product&gt;" nullable="true" kind="Persistent" fieldName="_products" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="baad5127-a5e3-414d-91f3-b2b37418d6ee" name="Product" namespace="SupermarketDb.Data" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="7f7a8a40-2111-47ce-be98-81219c7d9dcb" name="VendorId" type="Int32" label="VendorId : Int32" kind="Persistent" fieldName="_vendorId" />
+      <Property Id="96dbe57c-9325-4e18-a162-8afeb7dfd5aa" name="ProductName" label="ProductName : String" kind="Persistent" fieldName="_productName" />
+      <Property Id="c3106288-29da-4b7e-b223-4f7a208b6732" name="ProductId" type="Int32" label="ProductId : Int32" kind="Persistent" identity="true" fieldName="_productId" />
+      <Property Id="37e8f849-ea03-4087-ac6b-1d496ef9be79" name="MeasureId" type="Int32" label="MeasureId : Int32" kind="Persistent" fieldName="_measureId" />
+      <Property Id="69c1c28c-e7af-4080-9e99-d8dbc057aacb" name="BasePrice" type="Decimal" label="BasePrice : Decimal" kind="Persistent" fieldName="_basePrice" />
+      <AssociationTargets>
+        <Association Id="abcbf5c7-2305-45ec-84ad-4f5d8fc57de5" SourceMultiplicity="One" name="ProductHasVendor">
+          <DomainClassMoniker name="/SupermarketDbModel/Vendor" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="cc5f58a5-f453-4a39-9412-86badb70c90f">
+              <NavigationalPropertyMoniker name="/SupermarketDbModel/Vendor/Products" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="508be2ce-a34a-48f5-9ccf-9e0894e39f08">
+              <NavigationalPropertyMoniker name="/SupermarketDbModel/Product/Vendor" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+        <Association Id="22b4bf20-14e1-404d-b0c6-61058e8d5681" SourceMultiplicity="One" name="ProductHasMeasure">
+          <DomainClassMoniker name="/SupermarketDbModel/Measure" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="20e81944-de41-4bac-81f9-9f26fec58b90">
+              <NavigationalPropertyMoniker name="/SupermarketDbModel/Measure/Products" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="87eddfe0-b59d-4e85-8832-fa7d313e5dfb">
+              <NavigationalPropertyMoniker name="/SupermarketDbModel/Product/Measure" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="a6c30a86-e7f6-4722-ac7e-a2a783614cd0">
+          <NavigationalProperty Id="a3278439-475f-4b06-a66a-ce21221f3e79" name="Vendor" type="Vendor" label="Vendor : Vendor" nullable="true" kind="Persistent" fieldName="_vendor" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="88676369-b1eb-42ca-bc30-128770283eb2">
+          <NavigationalProperty Id="8e63f9b9-0718-4a25-b8c6-10e24513fc72" name="Measure" type="Measure" label="Measure : Measure" nullable="true" kind="Persistent" fieldName="_measure" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="0c2ba682-9105-43c3-94a8-668f1b38ed25" name="Measure" namespace="SupermarketDb.Data" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="f6c3f852-2a98-4c3e-a14c-9d4188dc7410" name="MeasureName" label="MeasureName : String" kind="Persistent" fieldName="_measureName" />
+      <Property Id="9ea1da48-46d3-4e7c-9014-04fa8e6a16bd" name="MeasureId" type="Int32" label="MeasureId : Int32" kind="Persistent" identity="true" fieldName="_measureId" />
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="94ec79fd-591d-4a33-a134-08a63889a779">
+          <NavigationalProperty Id="ad2d8ee1-ad34-4c40-be36-f63d9d35f869" name="Products" type="IList&lt;Product&gt;" label="Products : IList&lt;Product&gt;" nullable="true" kind="Persistent" fieldName="_products" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+  </Types>
+  <domainContext>
+    <domainModelHasDomainContext Id="9958ef45-bdc2-45d9-99dc-3448f3c65468">
+      <domainContainer name="SupermarketDbModel" namespace="SupermarketDb.Data" showPropertiesCompartment="true">
+        <entitySetProperty name="Vendors" namespace="SupermarketDb.Data" type="Vendor" label="Vendors : IQueryable&lt;SupermarketDb.Data.Vendor&gt;" />
+        <entitySetProperty name="Products" namespace="SupermarketDb.Data" type="Product" label="Products : IQueryable&lt;SupermarketDb.Data.Product&gt;" />
+        <entitySetProperty name="Measures" namespace="SupermarketDb.Data" type="Measure" label="Measures : IQueryable&lt;SupermarketDb.Data.Measure&gt;" />
+      </domainContainer>
+    </domainModelHasDomainContext>
+  </domainContext>
+</DomainModel>

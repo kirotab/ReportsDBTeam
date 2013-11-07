@@ -1,0 +1,8 @@
+C:\Users\kiro\Desktop\DBTEAMWORK\DBTeamwork\SupermarketDb..Data\bin\Debug\SupermarketDb._.Data.dll.config
+C:\Users\kiro\Desktop\DBTEAMWORK\DBTeamwork\SupermarketDb..Data\bin\Debug\SupermarketDb._.Data.dll
+C:\Users\kiro\Desktop\DBTEAMWORK\DBTeamwork\SupermarketDb..Data\bin\Debug\SupermarketDb._.Data.pdb
+C:\Users\kiro\Desktop\DBTEAMWORK\DBTeamwork\SupermarketDb..Data\bin\Debug\Telerik.OpenAccess.35.Extensions.dll
+C:\Users\kiro\Desktop\DBTEAMWORK\DBTeamwork\SupermarketDb..Data\bin\Debug\Telerik.OpenAccess.35.Extensions.xml
+C:\Users\kiro\Desktop\DBTEAMWORK\DBTeamwork\SupermarketDb..Data\obj\Debug\SupermarketDb.Data.csprojResolveAssemblyReference.cache
+C:\Users\kiro\Desktop\DBTEAMWORK\DBTeamwork\SupermarketDb..Data\obj\Debug\SupermarketDb._.Data.dll
+C:\Users\kiro\Desktop\DBTEAMWORK\DBTeamwork\SupermarketDb..Data\obj\Debug\SupermarketDb._.Data.pdb

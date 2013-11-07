@@ -1,0 +1,10 @@
+C:\Users\kiro\Desktop\DBTEAMWORK\DBTeamwork\SupermarketEF.Data\bin\Debug\SupermarketEF.Data.dll.config
+C:\Users\kiro\Desktop\DBTEAMWORK\DBTeamwork\SupermarketEF.Data\bin\Debug\SupermarketEF.Data.dll
+C:\Users\kiro\Desktop\DBTEAMWORK\DBTeamwork\SupermarketEF.Data\bin\Debug\SupermarketEF.Data.pdb
+C:\Users\kiro\Desktop\DBTEAMWORK\DBTeamwork\SupermarketEF.Data\bin\Debug\EntityFramework.dll
+C:\Users\kiro\Desktop\DBTEAMWORK\DBTeamwork\SupermarketEF.Data\bin\Debug\SupermarketEF.Model.dll
+C:\Users\kiro\Desktop\DBTEAMWORK\DBTeamwork\SupermarketEF.Data\bin\Debug\SupermarketEF.Model.pdb
+C:\Users\kiro\Desktop\DBTEAMWORK\DBTeamwork\SupermarketEF.Data\bin\Debug\EntityFramework.xml
+C:\Users\kiro\Desktop\DBTEAMWORK\DBTeamwork\SupermarketEF.Data\obj\Debug\SupermarketEF.Data.csprojResolveAssemblyReference.cache
+C:\Users\kiro\Desktop\DBTEAMWORK\DBTeamwork\SupermarketEF.Data\obj\Debug\SupermarketEF.Data.dll
+C:\Users\kiro\Desktop\DBTEAMWORK\DBTeamwork\SupermarketEF.Data\obj\Debug\SupermarketEF.Data.pdb
